@@ -1,5 +1,5 @@
 /*
-Small program to make a triangle of
+Small program to make a triangle of hashtags
  */
 
 let triangleString = "";
