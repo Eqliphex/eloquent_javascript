@@ -1,3 +1,11 @@
+/**
+ * @summary
+ * Small program to print out a chessboard in variable size.
+ *
+ * @author  Patrick W. Meyer
+ *
+ */
+
 const SIZE = 16;
 
 for(let i = 1; i <= SIZE; i++) {
