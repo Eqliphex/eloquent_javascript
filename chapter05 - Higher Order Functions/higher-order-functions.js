@@ -1,10 +1,10 @@
 // Function that creates a new function:
 function greaterThan(n) {
-    return (m) => m > n;                                        // Could omit the parenthesis.
+    return (m) => m > n;                                        // Could omit the parenthesis, included for clarity.
 }
 
-let greaterThan10 = greaterThan(10);
-console.log(greaterThan10(11));
+let greaterThan10 = greaterThan(10);                            // Saves the returned function to greaterThan10.
+console.log(greaterThan10(11));                                 // Calling anonymous function saved in greaterThan10.
 
 
 // Functions that changes other functions:                      // ...args allows varying amounts of arguments.
