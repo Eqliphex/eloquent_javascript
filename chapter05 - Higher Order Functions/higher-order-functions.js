@@ -7,7 +7,7 @@ let greaterThan10 = greaterThan(10);                            // Saves the ret
 console.log(greaterThan10(11));                                 // Calling anonymous function saved in greaterThan10.
 
 
-// Functions that changes other functions:                      // ...args allows varying amounts of arguments.
+// Functions that changes other functions:                      // ...args allows variadic function implementation.
 function noisy(f) {
     return (...args) => {                                       // Enables us to write (3, 2, 1) after noisy(math.min).
         console.log('Calling with', args);                      // Writes the extra args (3, 2, 1).
