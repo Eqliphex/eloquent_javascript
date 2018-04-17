@@ -21,7 +21,7 @@ let result = noisy(Math.min)(3, 2, 1);
 console.log(result);
 
 
-// Functions that makes new control flow:
+// Functions that make new control flow:
 function unless(test, then) {                                   // Takes a test and a function referred to as "then"
     if (!test) {                                                // If test returns false.
         then();                                                 // Execute the then method.
