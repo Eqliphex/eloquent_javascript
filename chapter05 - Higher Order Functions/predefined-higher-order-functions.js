@@ -36,7 +36,7 @@ let rtlScripts = SCRIPTS.filter(s => s.direction === 'rtl'); // Initial filterin
 
 function reduce(array, combine, start) {                // Takes an array, combine function and start index.
     let current = start;                                // Sets the initial value to start value.
-    for(let element of array) {                         // Runs through all elements.
+    for (let element of array) {                         // Runs through all elements.
         current = combine(current, element);            // Calls the combine() on current and next value and overwrites.
     }
 
@@ -48,7 +48,7 @@ console.log(reduce([1, 2, 3, 4], (a, b) => a * b, 1));
 
 // Using reduce to find script with most characters:
 function characterCount(script) {
-    return script.ranges.reduce((count, [from, to]) => {
+    return script.ranges.reduce((count, [from, to]) => { // takes the ranges in SCRIPTS and reduces them with function.
         return count + (to - from);
     }, 0);
 }
@@ -56,3 +56,54 @@ function characterCount(script) {
 console.log(SCRIPTS.reduce((a, b) => {
     return characterCount(a) < characterCount(b) ? b : a;
 }));
+
+// Writing the previous without higher order functions:
+let biggest = null;
+for (let script of SCRIPTS) {
+    if (biggest == null || characterCount(biggest) < characterCount(script)) {
+        biggest = script;
+    }
+}
+
+// Composability:
+function average(array) {
+    return array.reduce((a, b) => a + b) / array.length;
+}
+
+console.log(Math.round(average( // Rounds the average, filters out all the living scripts, selects the remaining entries year.
+    SCRIPTS.filter(s => !s.living).map(s => s.year))));
+
+console.log(Math.round(average( // Rounds the average, filters out all the non-living scripts, selects the remaining entries year.
+    SCRIPTS.filter(s => s.living).map(s => s.year))));
+
+// The less abstract implementation.
+let total = 0, count = 0;
+for (let script of SCRIPTS) {
+    if (script.living) {
+        total += script.year;
+        count += 1;
+    }
+}
+
+console.log(Math.round(total / count));
+
+// 1st. implementation builds new arrays when running filter and map.
+// 2nd computes some numbers.
+// If heavy program, the second would be more viable.
+
+
+// Strings and character codes:
+
+// Searches through an array in each script, containing character code ranges:
+function characterScript(code) {
+    for (let script of SCRIPTS) {
+        if (script.ranges.some(([from, to]) => { // some() takes  a test function
+            return code >= from && code < to;
+        })) {
+            return script;
+        }
+    }
+    return null;
+}
+
+console.log(characterScript(121));
