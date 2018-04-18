@@ -52,3 +52,7 @@ function characterCount(script) {
         return count + (to - from);
     }, 0);
 }
+
+console.log(SCRIPTS.reduce((a, b) => {
+    return characterCount(a) < characterCount(b) ? b : a;
+}));
