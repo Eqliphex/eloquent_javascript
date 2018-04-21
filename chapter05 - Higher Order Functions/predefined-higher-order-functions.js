@@ -12,10 +12,10 @@ function filter(array, test) {                          // Takes an array and a 
     return passed;                                      // Return passed elements.
 }
 
-//console.log(filter(SCRIPTS, script => script.living));    // Filteres the list with the "living" true/false property.
+console.log(filter(SCRIPTS, script => script.living));  // Filteres the list with the "living" true/false property.
 
 // Predefined array filter
-//console.log(SCRIPTS.filter(s => s.direction == 'ttb'));
+console.log(SCRIPTS.filter(s => s.direction == 'ttb'));
 
 
 // applies function to all array elements and creates a new one from the returned values.
@@ -36,7 +36,7 @@ let rtlScripts = SCRIPTS.filter(s => s.direction === 'rtl'); // Initial filterin
 
 function reduce(array, combine, start) {                // Takes an array, combine function and start index.
     let current = start;                                // Sets the initial value to start value.
-    for (let element of array) {                         // Runs through all elements.
+    for (let element of array) {                        // Runs through all elements.
         current = combine(current, element);            // Calls the combine() on current and next value and overwrites.
     }
 
