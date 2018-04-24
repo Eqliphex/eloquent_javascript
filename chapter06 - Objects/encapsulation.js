@@ -12,10 +12,17 @@ function speak(line) {
 }
 
 let whiteRabbit = {type: "white", speak};
-let whiteRabbit = {type: "hungry", speak};
+let hungryRabbit = {type: "hungry", speak};
 
 whiteRabbit.speak("Oh my ears and whiskers, " + "how late it's getting!");
+hungryRabbit.speak("I could use a carrot right now.");
 // →
 
+// For explicit function call with (this):
+speak.call(hungryRabbit, "Burp!");
 
 // (this.) points to the object which the methods belongs to:
+function normalize() {
+    console.log(this.coords.map(n => n / this.length)); // Will not work with normal function keyword
+}
+
