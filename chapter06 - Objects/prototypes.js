@@ -16,7 +16,7 @@ let prototypeRabbit = {
     }
 };
 
-let killerRabbit = Object.create(prototypeRabbit);
+let killerRabbit = Object.create(prototypeRabbit); // Can also have null as value to indicate no ancestor.
 killerRabbit.type = 'Killer';
 killerRabbit.speak("SKREEEE!");
 // → The killer rabbit says 'SKREEEE'
